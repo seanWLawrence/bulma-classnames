@@ -1,3 +1,7 @@
+# Bulma Classnames
+
+Simple utility for creating Bulma.css classnames using JavaScript objects
+
 ### The problem
 
 Bulma is very modular and powerful css framework, similar to [Bootstrap](http://getbootstrap.com/), [Foundation](https://foundation.zurb.com/), etc. One of the issues I have when using a framework like this, is the extremely long, spaghetti code-looking classnames that you have to use to create a custom component. 
