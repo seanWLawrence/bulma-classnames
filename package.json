@@ -14,9 +14,8 @@
   "scripts": {
     "develop": "microbundle watch",
     "test": "jest --watch",
-    "flow": "flow",
     "lint": "prettier-eslint --config .prettierrc.js --eslint-config-path .eslintrc.js --write  \"src/*.js\"",
-    "prepublish": "yarn test yarn flow && yarn lint",
+    "prepublish": "jest && flow && yarn lint",
     "build": "yarn prepublish && microbundle"
   },
   "jest": {
@@ -32,7 +31,6 @@
     "eslint": "^5.2.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-jest": "^21.18.0",
-    "eslint-plugin-jsdoc": "^3.7.1",
     "flow-bin": "^0.77.0",
     "jest": "^23.4.2",
     "microbundle": "^0.6.0",
