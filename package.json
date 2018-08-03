@@ -1,0 +1,35 @@
+{
+  "name": "bulma-classnames",
+  "version": "0.0.1",
+  "description": "Simple utility for creating Bulma.css classnames using JavaScript objects",
+  "main": "dist/bulma-classnames.js",
+  "umd:main": "dist/bulma-classnames.umd.js",
+  "module": "dist/bulma-classnames.m.js",
+  "source": "src/index.js",
+  "typings": "src/types.js",
+  "repository": "https://github.com/seanwlawrence/bulma-classnames.git",
+  "author": "Sean W. Lawrence",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "develop": "microbundle watch",
+    "flow": "flow",
+    "lint": "prettier-eslint --config .prettierrc.js --eslint-config-path .eslintrc.js --write  \"src/*.js\"",
+    "prepublish": "yarn flow && yarn lint",
+    "build": "yarn prepublish && microbundle"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.2.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-jest": "^21.18.0",
+    "eslint-plugin-jsdoc": "^3.7.1",
+    "flow-bin": "^0.77.0",
+    "microbundle": "^0.6.0",
+    "prettier": "^1.14.0",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1"
+  }
+}
