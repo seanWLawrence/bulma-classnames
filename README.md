@@ -149,7 +149,7 @@ bulma({
 // => 'column'
 ```
 
-**backgroundColor:** ```string``` - adds "is-background-color-" to the front of the string
+**backgroundColor:** ```string``` - adds "is-background-" to the front of the string
 ```javascript
 bulma({
   backgroundColor: 'primary'
@@ -256,19 +256,6 @@ bulma({
 // => 'is-inline-mobile is-inline-desktop is-inline-widescreen'
 ```
 
-**hidden:** ```string | string[]``` - adds "is-dden" to the front of each string
-```javascript
-bulma({
-  hidden: 'mobile'
-}) 
-// => 'is-hidden-mobile'
-
-bulma({
-  hidden: [ 'mobile', 'desktop', 'widescreen']
-}) 
-// => 'is-hidden-mobile is-hidden-desktop is-hidden-widescreen'
-```
-
 **textColor:** ```string``` - adds "has-text-color" to the front of the string
 ```javascript
 bulma({
@@ -336,7 +323,7 @@ bulma({
 
 ## Contributions 
 
-Contributions are welcome! Submit an issue if you have any suggestions that you'd like to help with and feedback!
+Contributions are welcome! [Submit an issue](https://github.com/seanWLawrence/bulma-classnames/issues) if you have any suggestions that you'd like to help with and feedback!
 
 ### License
 MIT
