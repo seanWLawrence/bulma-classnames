@@ -31,53 +31,53 @@ type ButtonColorValues =
 	| 'text'
 	| ColorValuesMain;
 
-	type TextColors = 
-		 'text-primary'
-		| 'text-link'
-		| 'text-info'
-		| 'text-success'
-		| 'text-warning'
-		| 'text-danger';
-		| 'text-white'
-		| 'text-white-ter'
-		| 'text-white-bis'
-		| 'text-grey-lighter'
-		| 'text-grey-light'
-		| 'text-grey'
-		| 'text-grey-dark'
-		| 'text-grey-darker'
-		| 'text-black'
-		| 'text-black-ter'
-		| 'text-black-bis'
+type TextColors =
+	| 'text-primary'
+	| 'text-link'
+	| 'text-info'
+	| 'text-success'
+	| 'text-warning'
+	| 'text-danger'
+	| 'text-white'
+	| 'text-white-ter'
+	| 'text-white-bis'
+	| 'text-grey-lighter'
+	| 'text-grey-light'
+	| 'text-grey'
+	| 'text-grey-dark'
+	| 'text-grey-darker'
+	| 'text-black'
+	| 'text-black-ter'
+	| 'text-black-bis';
 
-		type TextAlign = 
-		|	'centered' 
-		| 'justified' 
-		| 'left' 
-		| 'right'
-		|	'centered'
-		| 'justified'
-		| 'left'
-		| 'right'
-		|	'centered'
-		| 'justified'
-		| 'left'
-		| 'right'
-		|	'centered'
-		| 'justified'
-		| 'left'
-		| 'right'
-		|	'centered'
-		| 'justified'
-		| 'left'
-		| 'right'
-		|	'centered'
-		| 'justified'
-		| 'left'
-		| 'right'
+type TextAlign =
+	| 'centered'
+	| 'justified'
+	| 'left'
+	| 'right'
+	| 'centered'
+	| 'justified'
+	| 'left'
+	| 'right'
+	| 'centered'
+	| 'justified'
+	| 'left'
+	| 'right'
+	| 'centered'
+	| 'justified'
+	| 'left'
+	| 'right'
+	| 'centered'
+	| 'justified'
+	| 'left'
+	| 'right'
+	| 'centered'
+	| 'justified'
+	| 'left'
+	| 'right';
 
 type ResponsiveTypes =
-	 'block'
+	| 'block'
 	| 'flex'
 	| 'inline'
 	| 'inline-block'
@@ -306,6 +306,7 @@ type IsValues =
 	| 'hoverable'
 	| 'boxed'
 	| 'toggle'
+	| TextSizes
 	| 'toggle-rounded'
 	| TileModifiers
 	| HeroModifiers
@@ -323,6 +324,8 @@ type IsValues =
 	| TileModifiers;
 
 type HasValues =
+	| TextColors
+	| TextAlign
 	| 'arrow-separator'
 	| 'bullet-separator'
 	| 'dot-separator'
@@ -337,8 +340,8 @@ type HasValues =
  **/
 
 export type Classnames = {
-	is?: IsValues,
-	has?: string | string[],
+	is?: IsValues | string | string[],
+	has?: HasValues | string | string[],
 	backgroundColor?: string,
 	textColor?: string,
 	textSize?: string,
