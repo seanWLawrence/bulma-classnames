@@ -13,20 +13,28 @@
   "private": false,
   "scripts": {
     "develop": "microbundle watch",
+    "test": "jest --watch",
     "flow": "flow",
     "lint": "prettier-eslint --config .prettierrc.js --eslint-config-path .eslintrc.js --write  \"src/*.js\"",
-    "prepublish": "yarn flow && yarn lint",
+    "prepublish": "yarn test yarn flow && yarn lint",
     "build": "yarn prepublish && microbundle"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "dependencies": {},
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^5.2.0",
     "eslint-plugin-flowtype": "^2.50.0",
-    "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-jest": "^21.18.0",
     "eslint-plugin-jsdoc": "^3.7.1",
     "flow-bin": "^0.77.0",
+    "jest": "^23.4.2",
     "microbundle": "^0.6.0",
     "prettier": "^1.14.0",
     "prettier-eslint": "^8.8.2",

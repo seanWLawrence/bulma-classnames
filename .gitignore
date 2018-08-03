@@ -3,3 +3,6 @@ node_modules
 
 // ignore build
 dist
+
+// ignore vs code settings
+.vscode/
