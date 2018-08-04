@@ -28,10 +28,10 @@
   "config": {
     "ghooks": {
       "pre-commit": "yarn test:single"
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
-  },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
   },
   "dependencies": {},
   "devDependencies": {
