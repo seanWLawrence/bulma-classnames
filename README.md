@@ -109,8 +109,9 @@ So much better, right?!
 - [Contributors](#contributors)
 - [Issues](#issues)
   - [🐛 Bugs](#%F0%9F%90%9B-bugs)
-  - [💡 Feature Requests](#%F0%9F%92%A1-feature-requests)
-  - [❓ Questions](#%E2%9D%93-questions)
+- [💡 Feature Requests](#%F0%9F%92%A1-feature-requests)
+- [❓ Questions](#%E2%9D%93-questions)
+- [Changelog](#changelog)
 - [LICENSE](#license)
 
 ## Installation
@@ -630,14 +631,18 @@ Looking to contribute? Check out our [roadmap](#roadmap) and [raise an issue](ht
 
 Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) for bugs, missing documentation, or unexpected behavior.
 
-### 💡 Feature Requests
+## 💡 Feature Requests
 
 Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) to suggest new features. Vote on feature requests by adding
 a 👍. This helps maintainers prioritize what to work on.
 
-### ❓ Questions
+## ❓ Questions
 
 Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) if you have any questions about how to use this package.
+
+## Changelog
+
+View the [changelog](https://github.com/seanWLawrence/bulma-classnames/blob/master/CHANGELOG.md) to see all updates **since v1.0.0**, which will be automatically updated by `commitizen` and `semantic-release`.
 
 ## LICENSE
 
