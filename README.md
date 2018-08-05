@@ -108,9 +108,10 @@ So much better, right?!
 - [Roadmap](#roadmap)
 - [Contributors](#contributors)
 - [Issues](#issues)
-  - [🐛 Bugs](#%F0%9F%90%9B-bugs)
-- [💡 Feature Requests](#%F0%9F%92%A1-feature-requests)
-- [❓ Questions](#%E2%9D%93-questions)
+  - [Bugs](#bugs)
+- [Feature Requests](#feature-requests)
+- [Questions](#questions)
+- [Contributing](#contributing)
 - [Changelog](#changelog)
 - [LICENSE](#license)
 
@@ -627,22 +628,26 @@ This package is a single function that formats the object with a class that has 
 
 Looking to contribute? Check out our [roadmap](#roadmap) and [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) on what you'd like to help with!
 
-### 🐛 Bugs
+### Bugs
 
 Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) for bugs, missing documentation, or unexpected behavior.
 
-## 💡 Feature Requests
+## Feature Requests
 
 Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) to suggest new features. Vote on feature requests by adding
 a 👍. This helps maintainers prioritize what to work on.
 
-## ❓ Questions
+## Questions
 
 Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) if you have any questions about how to use this package.
 
+## Contributing
+
+Contributions are welcome! If you'd like to help out, check the [issues](https://github.com/seanwlawrence/bulma-classnames/issues/) or [create a new issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) and let us know what you plan to work on. When you're ready to start, visit out instructions on [how to contribute](https://github.com/seanWLawrence/bulma-classnames/blob/master/CONTRIBUTING.md) for more information.
+
 ## Changelog
 
-View the [changelog](https://github.com/seanWLawrence/bulma-classnames/blob/master/CHANGELOG.md) to see all updates **since v1.0.0**, which will be automatically updated by `commitizen` and `semantic-release`.
+View the [changelog](https://github.com/seanWLawrence/bulma-classnames/blob/master/CHANGELOG.md) to see all updates, which will be automatically updated by `commitizen` and `semantic-release`.
 
 ## LICENSE
 
