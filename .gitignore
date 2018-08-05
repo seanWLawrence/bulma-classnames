@@ -6,3 +6,10 @@ dist
 
 // ignore vs code settings
 .vscode/
+
+// ignore code coverage
+coverage/
+
+// ignore Mac settings 
+.DS_Store
+assets/.DS_Store

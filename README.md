@@ -1,25 +1,19 @@
 <div align="center">
 <h1>bulma-classnames</h1>
 
-<img height="80" width="80" alt="goat" src="./assets/made-for-bulma.png" />
-
-<p>Simple utility for creating declarative classnames in JSX for <a href="https://bulma.io" title="Bulma CSS">bulma.css</a> using JavaScript objects.</p>
+<p>Simple utility for creating declarative classnames in JSX for <a href="https://bulma.io" title="Bulma CSS">bulma.css</a> using JavaScript objects</p>
 </div>
 
-<hr />
-
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
-[![MIT License][license-badge]][license]
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-47-orange.svg?style=flat-square)](#contributors)
-[![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
-[![Join the community on Spectrum][spectrum-badge]][spectrum]
-
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
+[![npm](https://img.shields.io/npm/v/bulma-classnames.svg?style=flat-square&colorB=blue)](https://www.npmjs.com/package/bulma-classnames)
+[![Travis (.org)](https://img.shields.io/travis/seanWLawrence/bulma-classnames.svg?style=flat-square)](https://travis-ci.org/seanWLawrence/bulma-classnames)
+[![Coveralls github branch](https://img.shields.io/coveralls/github/seanWLawrence/bulma-classnames/master.svg?style=flat-square&colorB=brightgreen)](https://coveralls.io/github/seanWLawrence/bulma-classnames)
+[![GitHub last commit](https://img.shields.io/github/last-commit/seanwlawrence/bulma-classnames.svg?style=flat-square)](https://github.com/seanwlawrence/bulma-classnames/commits/master)
+![GitHub issues](https://img.shields.io/github/issues-raw/seanwlawrence/bulma-classnames.svg?style=flat-square)
+![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/bulma-classnames.svg?style=flat-square)
+[![GitHub](https://img.shields.io/github/license/seanwlawrence/bulma-classnames.svg?style=flat-square)](https://github.com/seanWLawrence/bulma-classnames/blob/master/LICENSE.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-blue.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 
 ## The problem
 
@@ -33,7 +27,7 @@ This problem gets even worse when you start to nest components and have a giant 
 
 ```html
 <h1 className="has-text-primary is-size-1-desktop is-size-2-tablet is-size-3-touch is-size-4-mobile has-text-left-mobile has-text-centered-desktop">
-  Hello, 
+  Hello,
   <a href="/world" className="has-text-secondary is-capitalized has-text-weight-bold">
     world!
   </a>
@@ -89,8 +83,25 @@ So much better, right?!
   - [Single values](#single-values)
   - [Multiple values](#multiple-values)
   - [Is, has, and raw](#is-has-and-raw)
+  - [Raw](#raw)
 - [API](#api)
-  - [`backgroundColor: string` - adds "is-background-" to the front of the string](#backgroundcolor-string---adds-%22is-background-%22-to-the-front-of-the-string)
+  - [`backgroundColor`](#backgroundcolor)
+  - [`color`](#color)
+  - [`column`](#column)
+  - [`offset`](#offset)
+  - [`flex`](#flex)
+  - [`inlineFlex`](#inlineflex)
+  - [`block`](#block)
+  - [`inlineBlock`](#inlineblock)
+  - [`inline`](#inline)
+  - [`textColor`](#textcolor)
+  - [`textSize`](#textsize)
+  - [`textWeight`](#textweight)
+  - [`textTransformation`](#texttransformation)
+  - [`textAlign`](#textalign)
+  - [`is`](#is)
+  - [`has`](#has)
+  - [`raw`](#raw)
 - [Learning Material](#learning-material)
 - [FAQ](#faq)
 - [Guiding Principles](#guiding-principles)
@@ -104,7 +115,7 @@ So much better, right?!
 
 ## Installation
 
-This module is distributed via [npm][npm] which is bundled with [node][node] and
+This module is distributed via [npm](https://npmjs.com) which is bundled with [node](https://nodejs.org) and
 should be installed as one of your project's `dependencies`:
 
 ```sh
@@ -269,210 +280,297 @@ let styles = bulma({
 // 'is-capitalized has-text-right-mobile has-text-left-desktop'
 ```
 
+### Raw
+
+`raw` is a simple way to add extra classnames without formatting them. Any string that you add in `raw` will be added to the end of the classname string.
+
+```jsx
+let styles = bulma({
+  color: 'primary',
+  raw: 'extra-classname another-classname'
+})
+
+// 'is-primary extra-classname another-classname'
+```
+
 ## API
 
 Here's a list of all the accepted keys and their types.
 
-### `backgroundColor: string` - adds "is-background-" to the front of the string
+### `backgroundColor`
+
+`string` - adds "is-background-" to the front of the string
 
 ```javascript
 bulma({
   backgroundColor: 'primary'
-}) 
+})
+
 // => 'is-background-primary'
 ```
 
-**color:** ```string``` - adds "is-" to the front of the string
+### `color`
+
+`string` - adds "is-" to the front of the string
+
 ```javascript
 bulma({
   color: 'primary'
-}) 
+})
+
 // => 'is-primary
 ```
 
-**column:** ```string | string[]``` - adds "is-" to the front of each string and "column" to the end
+### `column`
+
+`string | string[]` - adds "is-" to the front of each string and "column" to the end
+
 ```javascript
 bulma({
   column: '10-mobile'
-}) 
+})
+
 // => 'is-10-mobile column'
 
 bulma({
   column: [ '10-mobile', '11-desktop', '12-widescreen']
-}) 
+})
 // => 'is-10-mobile is-11-desktop is-12-widescreen column'
 ```
 
-**offset:** ```string | string[]``` - adds "is-offset-" to the front of each string 
+### `offset`
+
+`string | string[]` - adds "is-offset-" to the front of each string
+
 ```javascript
 bulma({
   offset: '10-mobile'
-}) 
+})
+
 // => 'is-offset-10-mobile'
 
 bulma({
   offset: [ '10-mobile', '11-desktop', '12-widescreen']
-}) 
+})
+
 // => 'is-offset-10-mobile is-offset-11-desktop is-offset-12-widescreen'
 ```
 
-**flex:** ```string | string[]``` - adds "is-flex" to the front of each string
+### `flex`
+
+`string | string[]` - adds "is-flex" to the front of each string
+
 ```javascript
 bulma({
   flex: 'mobile'
-}) 
+})
+
 // => 'is-flex-mobile'
 
 bulma({
   flex: [ 'mobile', 'desktop', 'widescreen']
-}) 
+})
+
 // => 'is-flex-mobile is-flex-desktop is-flex-widescreen'
 ```
 
-**inlineFlex:** ```string | string[]``` - adds "is-inline-flex" to the front of each string
+### `inlineFlex`
+
+`string | string[]` - adds "is-inline-flex" to the front of each string
+
 ```javascript
 bulma({
   inlineFlex: 'mobile'
-}) 
+})
+
 // => 'is-inline-flex-mobile'
 
 bulma({
   inlineFlex: [ 'mobile', 'desktop', 'widescreen']
-}) 
+})
+
 // => 'is-inline-flex-mobile is-inline-flex-desktop is-inline-flex-widescreen'
 ```
 
-**block:** ```string | string[]``` - adds "is-block" to the front of each string
+### `block`
+
+`string | string[]` - adds "is-block" to the front of each string
+
 ```javascript
 bulma({
   block: 'mobile'
-}) 
+})
+
 // => 'is-block-mobile'
 
 bulma({
   block: [ 'mobile', 'desktop', 'widescreen']
-}) 
+})
+
 // => 'is-block-mobile is-block-desktop is-block-widescreen'
 ```
 
-**inlineBlock:** ```string | string[]``` - adds "is-inline-block" to the front of each string
+### `inlineBlock`
+
+`string | string[]` - adds "is-inline-block" to the front of each string
+
 ```javascript
 bulma({
   inlineBlock: 'mobile'
-}) 
+})
+
 // => 'is-inline-block-mobile'
 
 bulma({
     inlineBlock: [ 'mobile', 'desktop', 'widescreen']
-}) 
+})
+
 // => 'is-inline-block-mobile is-inline-block-desktop is-inline-block-widescreen'
 ```
 
-**inline:** ```string | string[]``` - adds "is-inline" to the front of each string
+### `inline`
+
+`string | string[]` - adds "is-inline" to the front of each string
+
 ```javascript
 bulma({
   inline: 'mobile'
-}) 
+})
+
 // => 'is-inline-mobile'
 
 bulma({
   inline: [ 'mobile', 'desktop', 'widescreen']
-}) 
+})
+
 // => 'is-inline-mobile is-inline-desktop is-inline-widescreen'
 ```
 
-**textColor:** ```string``` - adds "has-text-color" to the front of the string
+### `textColor`
+
+`string` - adds "has-text-color" to the front of the string
+
 ```javascript
 bulma({
   textColor: 'primary'
-}) 
+})
+
 // => 'has-text-color-primary
 ```
 
-**textSize:** ```string | string[]``` - adds "is-size-" to the front of the string
+### `textSize`
+
+`string | string[]` - adds "is-size-" to the front of the string
+
 ```javascript
 bulma({
   textSize: '6'
-}) 
+})
+
 // => 'is-size-6'
 
 bulma({
   textSize: ['5-mobile', '6-desktop', '7-widescreen']
-}) 
+})
+
 // => 'is-size-5-mobile is-size-6-desktop is-size-7-widescreen'
 ```
 
-**textWeight:** ```string``` - adds "has-text-weight" to the front of the string
+### `textWeight`
+
+`string` - adds "has-text-weight" to the front of the string
+
 ```javascript
 bulma({
   textWeight: 'bold'
-}) 
+})
+
 // => 'has-text-weight-bold'
 
 ```
 
-**textTransformation:** ``` string | string[]``` - adds "is-" to the front of the string (for better semantics than using ```is:```
+### `textTransformation`
+
+`string | string[]` - adds "is-" to the front of the string
+
 ```javascript
 bulma({
   textTransformation: 'capitalized'
-}) 
+})
+
 // => 'is-capitalized'
 
 bulma({
   textTransformation: ['capitalized', 'italic']
-}) 
+})
+
 // => 'is-capitalized is-italic'
 ```
 
-**textAlign:** ``` string | string[]``` - adds "has-text-" to the front of the string
+### `textAlign`
+
+` string | string[]``` - adds "has-text-" to the front of the string
+
 ```javascript
 bulma({
   textAlign: 'left'
-}) 
+})
+
 // => 'has-text-left'
 
 bulma({
   textAlign: ['left-mobile', 'right-desktop', 'center-widescreen']
-}) 
+})
+
 // => 'has-text-left-mobile has-text-right-desktop has-text-center-widescreen'
 ```
 
-**is:** ```string | string[]``` - adds "is-" to the front of each string
+### `is`
+
+`string | string[]` - adds "is-" to the front of each string. Designed as an escape hatch, or for misc. helpers like `is-marginless`
 
 ```javascript
 
 bulma({
-  is: 'primary'
-}) 
-// => 'is-primary'
+  is: 'marginless'
+})
+
+// => 'is-marginless'
 
 bulma({
-  is: ['primary', 'capitalized']
-}) 
+  is: ['marginless', 'pulled-left']
+})
 
-// => 'is-primary is-capitalized'
-
+// => 'is-marginless is-pulled-left'
 ```
 
-**has:** ```string | string[]``` - adds "has-" to the front of each string
+### `has`
+
+`string | string[]` - adds "has-" to the front of each string. Designed as an escape hatch, or for misc. helpers like `has-addons`
 
 ```javascript
 bulma({
-  has: 'text-weight-bold'
-}) 
+  has: 'addons'
+})
+
 // => 'has-text-weight-bold'
 
 bulma({
-  has: ['text-weight-bold', 'text-color-danger']
-}) 
+  has: ['addons', 'addons-right']
+})
 
-// => 'has-text-weight-bold has-text-color-danger'
+// => 'has-addons has-addons-right'
 ```
-**raw:** ```string``` - outputs the exact same string that is passed, no formatting is added
+
+### `raw`
+
+`string` - outputs the exact same string that is passed, no formatting is added. Useful to pass extra classnames that either don't start with `is` or `has` o aren't related to Bulma in the same object
+
 ```javascript
 bulma({
   raw: 'column'
-}) 
+})
+
 // => 'column'
 ```
 
@@ -486,29 +584,25 @@ Feel free to contribute more!
 
 <details>
 
-<summary>Which get method should I use?</summary>
+<summary>Are there Flow and TypeScript types available?</summary>
 
-Based on [the Guiding Principles](#guiding-principles), your test should
-resemble how your code (component, page, etc.) is used as much as possible. With
-this in mind, we recommend this order of priority:
+Not yet, but I'm working on them and expect to have them finished soon. You can [see my progress](https://github.com/seanWLawrence/bulma-classnames/blob/master/src/types.js) and contribute if you like!
 
-1.  `getByLabelText`: Only really good for form fields, but this is the number 1
-    method a user finds those elements, so it should be your top preference.
-2.  `getByPlaceholderText`:
-    [A placeholder is not a substitute for a label](https://www.nngroup.com/articles/form-design-placeholders/).
-    But if that's all you have, then it's better than alternatives.
-3.  `getByText`: Not useful for forms, but this is the number 1 method a user
-    finds other elements (like buttons to click), so it should be your top
-    preference for non-form elements.
-4.  `getByAltText`: If your element is one which supports `alt` text (`img`,
-    `area`, and `input`), then you can use this to find that element.
-5.  `getByTestId`: The user cannot see (or hear) these, so this is only
-    recommended for cases where you can't match by text or it doesn't make sense
-    (the text is dynamic).
+</details>
 
-Other than that, you can also use the `container` to query the rendered
-component as well (using the regular
-[`querySelector` API](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)).
+<details>
+
+<summary>What is Bulma.css?</summary>
+
+[Bulma.css](https://bulma.io "Bulma.css home") is a beautiful stylesheet with helpers and components already pre-designed for you, like Bootstrap or Foundation. It uses classnames to reference the styles and is great for developers new to styling websites, or anyone that wants to use a battle-tested stylesheet to get going fast on a project. I used it heavily in my other project [Sushi Commerce](https://sushi-commerce.netlify.com "Sushi Commerce static e-commerce website generator") and it drove me to create this package to save hours of time and make my code much prettier to look at and reason about.
+
+</details>
+
+<details>
+
+<summary>What if I hate CSS-in-JS?</summary>
+
+Then this might still be great for you, because you're still doing the same thing as standard CSS - add classnames to an HTML object. But you're doing it more declaratively and modern. t still might feel weird putting your styles in an object at first though, and that's ok.
 
 </details>
 
@@ -522,7 +616,7 @@ This package is a single function that formats the object with a class that has 
 
 ## Roadmap
 
-- Flow types and TypeScript support
+- Flow and TypeScript typings
 
 ## Contributors
 
@@ -530,7 +624,7 @@ This package is a single function that formats the object with a class that has 
 
 ## Issues
 
-Looking to contribute? Check out our roadmap and [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) on what you'd like to help with!
+Looking to contribute? Check out our [roadmap](#roadmap) and [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues/new) on what you'd like to help with!
 
 ### 🐛 Bugs
 
@@ -549,41 +643,6 @@ Please [raise an issue](https://github.com/seanwlawrence/bulma-classnames/issues
 
 MIT
 
-[npm]: https://www.npmjs.com/
-[node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/kentcdodds/react-testing-library.svg?style=flat-square
-[build]: https://travis-ci.org/kentcdodds/react-testing-library
-[coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/react-testing-library.svg?style=flat-square
-[coverage]: https://codecov.io/github/kentcdodds/react-testing-library
-[version-badge]: https://img.shields.io/npm/v/react-testing-library.svg?style=flat-square
-[package]: https://www.npmjs.com/package/react-testing-library
-[downloads-badge]: https://img.shields.io/npm/dm/react-testing-library.svg?style=flat-square
-[npmtrends]: http://www.npmtrends.com/react-testing-library
-[spectrum-badge]: https://withspectrum.github.io/badge/badge.svg
-[spectrum]: https://spectrum.chat/react-testing-library
-[license-badge]: https://img.shields.io/npm/l/react-testing-library.svg?style=flat-square
-[license]: https://github.com/kentcdodds/react-testing-library/blob/master/LICENSE
-[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[prs]: http://makeapullrequest.com
-[donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
-[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/kentcdodds/react-testing-library/blob/master/CODE_OF_CONDUCT.md
-[github-watch-badge]: https://img.shields.io/github/watchers/kentcdodds/react-testing-library.svg?style=social
-[github-watch]: https://github.com/kentcdodds/react-testing-library/watchers
-[github-star-badge]: https://img.shields.io/github/stars/kentcdodds/react-testing-library.svg?style=social
-[github-star]: https://github.com/kentcdodds/react-testing-library/stargazers
-[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20react-testing-library%20by%20%40kentcdodds%20https%3A%2F%2Fgithub.com%2Fkentcdodds%2Freact-testing-library%20%F0%9F%91%8D
-[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/kentcdodds/react-testing-library.svg?style=social
-[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
-[all-contributors]: https://github.com/kentcdodds/all-contributors
-[set-immediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
-[guiding-principle]: https://twitter.com/kentcdodds/status/977018512689455106
-[data-testid-blog-post]: https://blog.kentcdodds.com/making-your-ui-tests-resilient-to-change-d37a6ee37269
-[dom-testing-lib-textmatch]: https://github.com/kentcdodds/dom-testing-library#textmatch
-[bugs]: https://github.com/kentcdodds/react-testing-library/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Acreated-desc
-[requests]: https://github.com/kentcdodds/react-testing-library/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Aenhancement+is%3Aopen
-[good-first-issue]: https://github.com/kentcdodds/react-testing-library/issues?utf8=✓&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A"good+first+issue"+
-[reactiflux]: https://www.reactiflux.com/
-[stackoverflow]: https://stackoverflow.com/questions/tagged/react-testing-library
-
 <!-- prettier-ignore-end -->
+
+<img height="80" alt="Made for bulma logo" src="https://raw.githubusercontent.com/seanwlawrence/bulma-classnames/master/assets/made_for_bulma.png" />

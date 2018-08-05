@@ -12,23 +12,24 @@
   "private": false,
   "scripts": {
     "develop": "microbundle watch",
-    "test": "jest --watch",
-    "test:single": "jest && flow",
+    "flow": "flow",
+    "flow:stop": "flow stop",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "yarn flow:stop && yarn flow && yarn test",
     "lint": "prettier-eslint --config .prettierrc.js --eslint-config-path .eslintrc.js --write  \"src/*.js\"",
-    "prepublish": "yarn test:single && yarn lint",
-    "build": "yarn prepublish && microbundle",
-    "commit": "git-cz",
+    "prepare": "yarn test:ci && yarn lint",
+    "build": "yarn prepare && microbundle",
+    "commit": "yarn test:ci && git-cz",
     "semantic-release": "semantic-release",
-    "setup": "semantic-release-cli setup",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once \"yarn semantic-release\""
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "config": {
-    "ghooks": {
-      "pre-commit": "yarn test:single"
-    },
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
@@ -41,6 +42,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "commitizen": "^2.10.1",
+    "coveralls": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.2.0",
     "eslint-plugin-flowtype": "^2.50.0",
